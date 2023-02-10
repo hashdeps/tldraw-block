@@ -13,8 +13,10 @@
     "build": "block-scripts build",
     "dev": "block-scripts dev",
     "fix:prettier": "prettier --write  --ignore-unknown .",
+    "fix:yarn-dedupe": "yarn dedupe",
     "lint:prettier": "prettier --check --ignore-unknown .",
     "lint:tsc": "tsc --noEmit",
+    "lint:yarn-dedupe": "yarn dedupe --check",
     "serve": "block-scripts serve"
   },
   "dependencies": {
@@ -38,6 +40,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
+  "packageManager": "yarn@4.0.0-rc.39",
   "block-scripts": {
     "devPort": 9090,
     "servePort": 62722
