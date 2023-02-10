@@ -12,6 +12,8 @@
   "scripts": {
     "build": "block-scripts build",
     "dev": "block-scripts dev",
+    "fix:prettier": "prettier --write  --ignore-unknown .",
+    "lint:prettier": "prettier --check --ignore-unknown .",
     "lint:tsc": "tsc --noEmit",
     "serve": "block-scripts serve"
   },
@@ -25,6 +27,9 @@
     "@types/react-resizable": "1.7.4",
     "block-scripts": "0.0.14",
     "mock-block-dock": "0.0.38",
+    "prettier": "2.8.4",
+    "prettier-plugin-packagejson": "2.4.2",
+    "prettier-plugin-sh": "0.12.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "4.9.4"
