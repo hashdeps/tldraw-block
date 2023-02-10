@@ -7,11 +7,6 @@
     "blockprotocol",
     "blocks"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hashintel/hash.git",
-    "directory": "blocks/drawing"
-  },
   "license": "MIT",
   "author": "tldraw",
   "scripts": {
