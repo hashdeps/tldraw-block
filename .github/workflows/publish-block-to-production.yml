@@ -1,0 +1,29 @@
+name: Publish block to production
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: Publish
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build block
+        run: yarn build
+
+      - name: Publish block
+        run: npx blockprotocol@latest publish
+        env:
+          BLOCK_PROTOCOL_API_KEY: ${{ secrets.BLOCK_PROTOCOL_API_KEY_TLDRAW_PRODUCTION }}
