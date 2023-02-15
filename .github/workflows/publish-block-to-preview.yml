@@ -28,7 +28,7 @@ jobs:
         run: yarn build
 
       - name: Publish block
-        run: npx blockprotocol@latest publish
+        run: npx blockprotocol@latest publish --yes
         env:
           BLOCK_PROTOCOL_API_KEY: ${{ secrets.BLOCK_PROTOCOL_API_KEY_TLDRAW_PREVIEW }}
           BLOCK_PROTOCOL_SITE_HOST: ${{ github.event.inputs.PREVIEW_DEPLOYMENT_URL }}
