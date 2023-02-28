@@ -17,18 +17,19 @@
     "lint:prettier": "prettier --check --ignore-unknown .",
     "lint:tsc": "tsc --noEmit",
     "lint:yarn-dedupe": "yarn dedupe --check",
-    "serve": "block-scripts serve"
+    "serve": "block-scripts serve",
+    "schema": "block-scripts codegen"
   },
   "dependencies": {
-    "@blockprotocol/graph": "0.0.18",
+    "@blockprotocol/graph": "0.1.0-canary-20230228103144",
     "@tldraw/tldraw": "1.16.0",
     "mobx": "6.5.0",
     "react-resizable": "^3.0.4"
   },
   "devDependencies": {
     "@types/react-resizable": "1.7.4",
-    "block-scripts": "0.0.14",
-    "mock-block-dock": "0.0.38",
+    "block-scripts": "0.1.0-canary-20230228103144",
+    "mock-block-dock": "0.1.0-canary-20230228103144",
     "prettier": "2.8.4",
     "prettier-plugin-packagejson": "2.4.2",
     "prettier-plugin-sh": "0.12.8",
@@ -53,14 +54,15 @@
     "displayName": "Drawing",
     "examples": [
       {
-        "height": 400,
-        "darkMode": false,
-        "serializedDocument": "",
-        "readOnly": false
+        "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/property-type/height/": 400,
+        "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/property-type/dark-mode/": false,
+        "https://blockprotocol-pktjfgq1m.stage.hash.ai/@blockprotocol/types/property-type/content/": "",
+        "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/property-type/read-only/": false
       }
     ],
     "icon": "public/icon.svg",
     "image": "public/preview.png",
-    "protocol": "0.2"
+    "protocol": "0.3",
+    "schema": "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/entity-type/drawing/v/2"
   }
 }
