@@ -1541,24 +1541,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@blockprotocol/core@npm:0.1.0-canary-20230228184514":
-  version: 0.1.0-canary-20230228184514
-  resolution: "@blockprotocol/core@npm:0.1.0-canary-20230228184514"
+"@blockprotocol/core@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@blockprotocol/core@npm:0.1.0"
   dependencies:
     es-module-lexer: "npm:^0.10.5"
     uuid: "npm:^8.3.2"
   peerDependencies:
     react: ^18.0.0
-  checksum: dbda064d2023a0e9cdc3f5effc277a7ea3066ff5c0aadfa968533aea7d0cfa67da6f9407ac3bf159b7653fa85fe21a8a0b7ed612ad659b3f2b302b23e48eae99
+  checksum: 0cce7a9a90fdc3a14daa7133db7b9879f0484ceb80fac009b3db58aad908c47e62bd41b0ebae5450208eeec5925491812df7b321e44988da154acbbe5f52f0cb
   languageName: node
   linkType: hard
 
-"@blockprotocol/graph@npm:0.1.0-canary-20230228184514":
-  version: 0.1.0-canary-20230228184514
-  resolution: "@blockprotocol/graph@npm:0.1.0-canary-20230228184514"
+"@blockprotocol/graph@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@blockprotocol/graph@npm:0.1.0"
   dependencies:
-    "@blockprotocol/core": "npm:0.1.0-canary-20230228184514"
-    "@blockprotocol/type-system": "npm:0.1.0-canary-20230228184514"
+    "@blockprotocol/core": "npm:0.1.0"
+    "@blockprotocol/type-system": "npm:0.1.0"
     ajv: "npm:^8.11.2"
     ajv-formats: "npm:^2.1.1"
     json-schema-to-typescript: "npm:^11.0.2"
@@ -1566,37 +1566,37 @@ __metadata:
     node-fetch: "npm:^3.3.0"
   peerDependencies:
     react: ^18.0.0
-  checksum: 0c04b28ebcc4a70d1b87f35d6c3e7d51756440d35c490695a4ea8ae608b63a2fba575d4f4ce15404c31c54630813183eae66f4f16225fdea9b504b110ef04c1d
+  checksum: 0cf2b9e07ff9778cce193d75ebc6127de1641f91d13b4e4ce24f03698c4926699d3be56989e5459b1a14485f93f44bd12ee0d0f755f56aaa64eb6b6777cf6d37
   languageName: node
   linkType: hard
 
-"@blockprotocol/hook@npm:0.1.0-canary-20230228184514":
-  version: 0.1.0-canary-20230228184514
-  resolution: "@blockprotocol/hook@npm:0.1.0-canary-20230228184514"
+"@blockprotocol/hook@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@blockprotocol/hook@npm:0.1.0"
   dependencies:
-    "@blockprotocol/core": "npm:0.1.0-canary-20230228184514"
-    "@blockprotocol/graph": "npm:0.1.0-canary-20230228184514"
+    "@blockprotocol/core": "npm:0.1.0"
+    "@blockprotocol/graph": "npm:0.1.0"
   peerDependencies:
     react: ^18.0.0
-  checksum: 46b1497f5e45341e9f48e9a9bb12fe217893726b0ac420df1168bfdb37e19c44a43a4c57f26b4a526c8b7590fdcfad92e0344387d649e8b86c51a79d8d925a05
+  checksum: e27a0106fb9d45a9f003dad1270568cdb169925e1d161c341ab9d0318f82944f1bcb7766f7d41fb197beaa46d7cc79b19e0ef3f2f91ade4fe611cc3af58c83c1
   languageName: node
   linkType: hard
 
-"@blockprotocol/service@npm:0.1.0-canary-20230228184514":
-  version: 0.1.0-canary-20230228184514
-  resolution: "@blockprotocol/service@npm:0.1.0-canary-20230228184514"
+"@blockprotocol/service@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@blockprotocol/service@npm:0.1.0"
   dependencies:
-    "@blockprotocol/core": "npm:0.1.0-canary-20230228184514"
+    "@blockprotocol/core": "npm:0.1.0"
   peerDependencies:
     react: ^18.0.0
-  checksum: cdcb513cadf11aedf7cd390039172b32c0d0747cc51014a3e4917142cdc37b1144ad98da8ea89bd458e025cf2c9cd66aa1fc7ab980a1b93a8d37008dc1cab2e2
+  checksum: 7b51fc26d200d2b32b5a34073fb486fbbc057102aee1c48896c584f64e2bad6968a5f0cf90b6fe79b8c525aab536169e1eb4c2a0e480984aae27967fda249a4f
   languageName: node
   linkType: hard
 
-"@blockprotocol/type-system@npm:0.1.0-canary-20230228184514":
-  version: 0.1.0-canary-20230228184514
-  resolution: "@blockprotocol/type-system@npm:0.1.0-canary-20230228184514"
-  checksum: 05ba35f53ae1592424126922ecd9700407c63757eb7fcae8a460395998dd5d64435fc20084b9c5330d638737f539e0f2fdaadb58a81027318954db8a226a7cb8
+"@blockprotocol/type-system@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@blockprotocol/type-system@npm:0.1.0"
+  checksum: b539f4c8801cbd711e0bf5ba5a9df98abe35a381a3231952b677cbf967154e365c0058eca9dd25eba146ce9e74e886bf9772760e64d4e6d659afec0f2effc5c5
   languageName: node
   linkType: hard
 
@@ -1604,12 +1604,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@blocks/drawing@workspace:."
   dependencies:
-    "@blockprotocol/graph": "npm:0.1.0-canary-20230228184514"
+    "@blockprotocol/graph": "npm:0.1.0"
     "@tldraw/tldraw": "npm:1.16.0"
     "@types/react-resizable": "npm:1.7.4"
-    block-scripts: "npm:0.1.0-canary-20230228184514"
+    block-scripts: "npm:0.1.0"
     mobx: "npm:6.5.0"
-    mock-block-dock: "npm:0.1.0-canary-20230228184514"
+    mock-block-dock: "npm:0.1.0"
     prettier: "npm:2.8.4"
     prettier-plugin-packagejson: "npm:2.4.2"
     prettier-plugin-sh: "npm:0.12.8"
@@ -3732,9 +3732,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"block-scripts@npm:0.1.0-canary-20230228184514":
-  version: 0.1.0-canary-20230228184514
-  resolution: "block-scripts@npm:0.1.0-canary-20230228184514"
+"block-scripts@npm:0.1.0":
+  version: 0.1.0
+  resolution: "block-scripts@npm:0.1.0"
   dependencies:
     "@babel/core": "npm:^7.20.5"
     "@babel/plugin-proposal-class-properties": "npm:^7.18.6"
@@ -3744,8 +3744,8 @@ __metadata:
     "@babel/preset-react": "npm:^7.18.6"
     "@babel/preset-typescript": "npm:7.18.6"
     "@babel/runtime": "npm:^7.20.6"
-    "@blockprotocol/graph": "npm:0.1.0-canary-20230228184514"
-    "@blockprotocol/type-system": "npm:0.1.0-canary-20230228184514"
+    "@blockprotocol/graph": "npm:0.1.0"
+    "@blockprotocol/type-system": "npm:0.1.0"
     babel-loader: "npm:^9.1.0"
     chalk: "npm:5.2.0"
     copy-webpack-plugin: "npm:10.2.4"
@@ -3766,7 +3766,7 @@ __metadata:
     yargs-parser: "npm:21.1.1"
   bin:
     block-scripts: bin.js
-  checksum: afbee7a9c4831c2f3ac455320fce443579cd385af93f1e6f0baf1d6a206ea72ad0c9df6d86bc562e357670d02fce9fef50fc7b095872f74c621aa843d865070e
+  checksum: 4174b1eb14e8595a2aa413e1ae3cf81c4668c9be472428ea05154c52c30f2960233ab2cfe2103610f182233772e29808a84997e42f1ec215bb0b6d5d830857d4
   languageName: node
   linkType: hard
 
@@ -6789,14 +6789,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mock-block-dock@npm:0.1.0-canary-20230228184514":
-  version: 0.1.0-canary-20230228184514
-  resolution: "mock-block-dock@npm:0.1.0-canary-20230228184514"
+"mock-block-dock@npm:0.1.0":
+  version: 0.1.0
+  resolution: "mock-block-dock@npm:0.1.0"
   dependencies:
-    "@blockprotocol/core": "npm:0.1.0-canary-20230228184514"
-    "@blockprotocol/graph": "npm:0.1.0-canary-20230228184514"
-    "@blockprotocol/hook": "npm:0.1.0-canary-20230228184514"
-    "@blockprotocol/service": "npm:0.1.0-canary-20230228184514"
+    "@blockprotocol/core": "npm:0.1.0"
+    "@blockprotocol/graph": "npm:0.1.0"
+    "@blockprotocol/hook": "npm:0.1.0"
+    "@blockprotocol/service": "npm:0.1.0"
     "@emotion/react": "npm:^11.10.0"
     "@emotion/styled": "npm:^11.10.0"
     "@lit-labs/react": "npm:^1.0.4"
@@ -6816,7 +6816,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: 111a9ed31b7560056a0e34da973532db8ec820bbd9a8e4411eb6635d91d391483910b65e7b55dcb2dd156074fc02dca867db519211cb266862d6aa7e43bff5e8
+  checksum: e626e822315df1bd4e9bb646ca833a376c5b90af820b371e9a99b2bf10889d52cf0ed08b791b67262ab67bf6e3b29bace47459081049e9d24ccefed751de23ec
   languageName: node
   linkType: hard
 

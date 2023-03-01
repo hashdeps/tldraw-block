@@ -21,15 +21,15 @@
     "serve": "block-scripts serve"
   },
   "dependencies": {
-    "@blockprotocol/graph": "0.1.0-canary-20230228184514",
+    "@blockprotocol/graph": "0.1.0",
     "@tldraw/tldraw": "1.16.0",
     "mobx": "6.5.0",
     "react-resizable": "^3.0.4"
   },
   "devDependencies": {
     "@types/react-resizable": "1.7.4",
-    "block-scripts": "0.1.0-canary-20230228184514",
-    "mock-block-dock": "0.1.0-canary-20230228184514",
+    "block-scripts": "0.1.0",
+    "mock-block-dock": "0.1.0",
     "prettier": "2.8.4",
     "prettier-plugin-packagejson": "2.4.2",
     "prettier-plugin-sh": "0.12.8",
