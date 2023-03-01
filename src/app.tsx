@@ -1,5 +1,6 @@
 import {
-  BlockComponent, useEntitySubgraph,
+  BlockComponent,
+  useEntitySubgraph,
   useGraphBlockModule,
 } from "@blockprotocol/graph/react";
 import { TDDocument, TDShapeType, Tldraw, TldrawApp } from "@tldraw/tldraw";
@@ -22,7 +23,6 @@ import {
   handleExport,
   isValidSerializedDocument,
 } from "./utils";
-
 
 type LocalState = {
   height: number;
@@ -50,9 +50,7 @@ export const App: BlockComponent<RootEntity> = ({
   const { graphModule } = useGraphBlockModule(blockRef);
   const {
     metadata: {
-      recordId: {
-        entityId,
-      },
+      recordId: { entityId },
       entityTypeId,
     },
     properties: {
@@ -143,10 +141,13 @@ export const App: BlockComponent<RootEntity> = ({
           newData[propertyIds.content] ??
           JSON.stringify(rTldrawApp.current.document),
         readOnly:
-          newData[propertyIds.readOnly] ?? rTldrawApp.current.settings.isReadonlyMode,
-        darkMode: newData[propertyIds.darkMode] ?? rTldrawApp.current.settings.isDarkMode,
-        ...(nextHeight ? { height: nextHeight, } : {}),
-        ...(nextWidth ? { width: nextWidth, } : {}),
+          newData[propertyIds.readOnly] ??
+          rTldrawApp.current.settings.isReadonlyMode,
+        darkMode:
+          newData[propertyIds.darkMode] ??
+          rTldrawApp.current.settings.isDarkMode,
+        ...(nextHeight ? { height: nextHeight } : {}),
+        ...(nextWidth ? { width: nextWidth } : {}),
       };
 
       void graphModule.updateEntity({
@@ -157,13 +158,7 @@ export const App: BlockComponent<RootEntity> = ({
         },
       });
     },
-    [
-      localState.height,
-      localState.width,
-      graphModule,
-      entityId,
-      graphReadOnly,
-    ],
+    [localState.height, localState.width, graphModule, entityId, graphReadOnly],
   );
 
   const handleMount = useCallback(

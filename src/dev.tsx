@@ -18,15 +18,16 @@ const initialData: RootEntity = {
       entityId: "entity-drawing",
       editionId: "1",
     },
-    entityTypeId: "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/entity-type/drawing/v/2"
+    entityTypeId:
+      "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/entity-type/drawing/v/2",
   },
   properties: {
     [propertyIds.content]: "",
     [propertyIds.height]: 400,
     [propertyIds.darkMode]: false,
-    [propertyIds.readOnly]: false
-  }
-}
+    [propertyIds.readOnly]: false,
+  },
+};
 
 const App = () => (
   <MockBlockDock

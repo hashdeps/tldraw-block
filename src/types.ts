@@ -48,12 +48,10 @@ export type DrawingProperties = {
   "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/property-type/read-only/"?: ReadOnly;
   "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/property-type/dark-mode/"?: DarkMode;
   "https://blockprotocol-pktjfgq1m.stage.hash.ai/@blockprotocol/types/property-type/content/": Content;
-}
+};
 
 export type Drawing = Entity<DrawingProperties>;
-export type DrawingLinksByLinkTypeId = {
-
-};
+export type DrawingLinksByLinkTypeId = {};
 
 export type DrawingLinkAndRightEntities = NonNullable<
   DrawingLinksByLinkTypeId[keyof DrawingLinksByLinkTypeId]
