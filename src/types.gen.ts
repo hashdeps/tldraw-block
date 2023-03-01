@@ -47,12 +47,10 @@ export type DrawingBlockProperties = {
   "https://blockprotocol.org/@blockprotocol/types/property-type/width-in-pixels/"?: WidthInPixelsPropertyValue;
   "https://blockprotocol.org/@blockprotocol/types/property-type/enable-dark-mode/"?: EnableDarkModePropertyValue;
   "https://blockprotocol.org/@tldraw/types/property-type/drawing-block-serialized-document/"?: DrawingBlockSerializedDocumentPropertyValue;
-}
+};
 
 export type DrawingBlock = Entity<DrawingBlockProperties>;
-export type DrawingBlockLinksByLinkTypeId = {
-
-};
+export type DrawingBlockLinksByLinkTypeId = {};
 
 export type DrawingBlockLinkAndRightEntities = NonNullable<
   DrawingBlockLinksByLinkTypeId[keyof DrawingBlockLinksByLinkTypeId]
