@@ -7,7 +7,7 @@ import { render } from "react-dom";
 
 import Component from "./index";
 import { propertyIds } from "./property-ids";
-import { RootEntity } from "./types";
+import { RootEntity } from "./types.gen";
 import packageJSON from "../package.json";
 
 const node = document.getElementById("app");
@@ -25,7 +25,6 @@ const initialData: RootEntity = {
     [propertyIds.content]: "",
     [propertyIds.height]: 400,
     [propertyIds.darkMode]: false,
-    [propertyIds.readOnly]: false,
   },
 };
 

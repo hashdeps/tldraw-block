@@ -15,7 +15,7 @@ import {
 import { Resizable, ResizeCallbackData } from "react-resizable";
 import "./base.css";
 import { propertyIds } from "./property-ids";
-import { RootEntity } from "./types";
+import { RootEntity } from "./types.gen";
 
 import {
   getDefaultDocument,
@@ -58,7 +58,6 @@ export const App: BlockComponent<RootEntity> = ({
       [propertyIds.width]: remoteWidth,
       [propertyIds.content]: remoteSerializedDocument,
       [propertyIds.darkMode]: remoteDarkMode = false,
-      [propertyIds.readOnly]: remoteReadOnly = false,
     },
   } = blockEntity;
 
@@ -118,14 +117,13 @@ export const App: BlockComponent<RootEntity> = ({
       serializedDocument: isValidSerializedDocument(remoteSerializedDocument)
         ? remoteSerializedDocument
         : prev.serializedDocument,
-      readOnly: !!graphReadOnly || remoteReadOnly,
+      readOnly: !!graphReadOnly,
     }));
   }, [
     remoteDarkMode,
     remoteHeight,
     remoteWidth,
     remoteSerializedDocument,
-    remoteReadOnly,
     graphReadOnly,
   ]);
 
@@ -140,9 +138,6 @@ export const App: BlockComponent<RootEntity> = ({
         [propertyIds.content]:
           newData[propertyIds.content] ??
           JSON.stringify(rTldrawApp.current.document),
-        [propertyIds.readOnly]:
-          newData[propertyIds.readOnly] ??
-          rTldrawApp.current.settings.isReadonlyMode,
         [propertyIds.darkMode]:
           newData[propertyIds.darkMode] ??
           rTldrawApp.current.settings.isDarkMode,

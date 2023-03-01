@@ -54,15 +54,14 @@
     "displayName": "Drawing",
     "examples": [
       {
-        "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/property-type/height/": 400,
-        "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/property-type/dark-mode/": false,
-        "https://blockprotocol-pktjfgq1m.stage.hash.ai/@blockprotocol/types/property-type/content/": "",
-        "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/property-type/read-only/": false
+        "https://blockprotocol.org/@blockprotocol/types/property-type/height-in-pixels/": 400,
+        "https://blockprotocol.org/@blockprotocol/types/property-type/enable-dark-mode/": false,
+        "https://blockprotocol.org/@tldraw/types/property-type/drawing-block-serialized-document/": ""
       }
     ],
     "icon": "public/icon.svg",
     "image": "public/preview.png",
     "protocol": "0.3",
-    "schema": "https://blockprotocol-g5unaez7e.stage.hash.ai/@nate/types/entity-type/drawing/v/2"
+    "schema": "https://blockprotocol.org/@tldraw/types/entity-type/drawing-block/v/2"
   }
 }
