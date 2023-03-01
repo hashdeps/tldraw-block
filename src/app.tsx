@@ -137,17 +137,17 @@ export const App: BlockComponent<RootEntity> = ({
       let nextHeight = newData[propertyIds.height] ?? localState.height;
       let nextWidth = newData[propertyIds.width] ?? localState.width;
       const properties = {
-        serializedDocument:
+        [propertyIds.content]:
           newData[propertyIds.content] ??
           JSON.stringify(rTldrawApp.current.document),
-        readOnly:
+        [propertyIds.readOnly]:
           newData[propertyIds.readOnly] ??
           rTldrawApp.current.settings.isReadonlyMode,
-        darkMode:
+        [propertyIds.darkMode]:
           newData[propertyIds.darkMode] ??
           rTldrawApp.current.settings.isDarkMode,
-        ...(nextHeight ? { height: nextHeight } : {}),
-        ...(nextWidth ? { width: nextWidth } : {}),
+        ...(nextHeight ? { [propertyIds.height]: nextHeight } : {}),
+        ...(nextWidth ? { [propertyIds.width]: nextWidth } : {}),
       };
 
       void graphModule.updateEntity({
