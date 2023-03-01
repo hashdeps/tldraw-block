@@ -1,8 +1,7 @@
-import "./base.css";
-
 import {
   BlockComponent,
-  useGraphBlockService,
+  useEntitySubgraph,
+  useGraphBlockModule,
 } from "@blockprotocol/graph/react";
 import { TDDocument, TDShapeType, Tldraw, TldrawApp } from "@tldraw/tldraw";
 import {
@@ -14,6 +13,9 @@ import {
   useState,
 } from "react";
 import { Resizable, ResizeCallbackData } from "react-resizable";
+import "./base.css";
+import { propertyIds } from "./property-ids";
+import { RootEntity } from "./types.gen";
 
 import {
   getDefaultDocument,
@@ -21,14 +23,6 @@ import {
   handleExport,
   isValidSerializedDocument,
 } from "./utils";
-
-type BlockEntityProperties = {
-  serializedDocument: string;
-  darkMode?: boolean;
-  width?: number;
-  height?: number;
-  readOnly?: boolean;
-};
 
 type LocalState = {
   height: number;
@@ -48,19 +42,22 @@ const BASE_HEIGHT = 500;
 // @todo consider storing the document in a .tldr file (which is uploaded
 // via file upload method) as opposed to the current approach of storing in JSON.
 
-export const App: BlockComponent<BlockEntityProperties> = ({
-  graph: { blockEntity, readonly: graphReadOnly },
+export const App: BlockComponent<RootEntity> = ({
+  graph: { readonly: graphReadOnly, blockEntitySubgraph },
 }) => {
+  const { rootEntity: blockEntity } = useEntitySubgraph(blockEntitySubgraph);
   const blockRef = useRef<HTMLDivElement>(null);
-  const { graphService } = useGraphBlockService(blockRef);
+  const { graphModule } = useGraphBlockModule(blockRef);
   const {
-    entityId,
+    metadata: {
+      recordId: { entityId },
+      entityTypeId,
+    },
     properties: {
-      height: remoteHeight,
-      width: remoteWidth,
-      serializedDocument: remoteSerializedDocument,
-      darkMode: remoteDarkMode = false,
-      readOnly: remoteReadOnly = false,
+      [propertyIds.height]: remoteHeight,
+      [propertyIds.width]: remoteWidth,
+      [propertyIds.content]: remoteSerializedDocument,
+      [propertyIds.darkMode]: remoteDarkMode = false,
     },
   } = blockEntity;
 
@@ -120,47 +117,43 @@ export const App: BlockComponent<BlockEntityProperties> = ({
       serializedDocument: isValidSerializedDocument(remoteSerializedDocument)
         ? remoteSerializedDocument
         : prev.serializedDocument,
-      readOnly: !!graphReadOnly || remoteReadOnly,
+      readOnly: !!graphReadOnly,
     }));
   }, [
     remoteDarkMode,
     remoteHeight,
     remoteWidth,
     remoteSerializedDocument,
-    remoteReadOnly,
     graphReadOnly,
   ]);
 
   const updateRemoteData = useCallback(
-    (newData: Partial<BlockEntityProperties>) => {
+    (newData: Partial<RootEntity["properties"]>) => {
       if (!rTldrawApp.current) return;
       if (graphReadOnly) return;
 
+      let nextHeight = newData[propertyIds.height] ?? localState.height;
+      let nextWidth = newData[propertyIds.width] ?? localState.width;
       const properties = {
-        serializedDocument:
-          newData.serializedDocument ??
+        [propertyIds.content]:
+          newData[propertyIds.content] ??
           JSON.stringify(rTldrawApp.current.document),
-        readOnly:
-          newData.readOnly ?? rTldrawApp.current.settings.isReadonlyMode,
-        darkMode: newData.darkMode ?? rTldrawApp.current.settings.isDarkMode,
-        height: newData.height ?? localState.height,
-        width: newData.width ?? localState.width,
+        [propertyIds.darkMode]:
+          newData[propertyIds.darkMode] ??
+          rTldrawApp.current.settings.isDarkMode,
+        ...(nextHeight ? { [propertyIds.height]: nextHeight } : {}),
+        ...(nextWidth ? { [propertyIds.width]: nextWidth } : {}),
       };
 
-      void graphService?.updateEntity({
+      void graphModule.updateEntity({
         data: {
           entityId,
           properties,
+          entityTypeId,
         },
       });
     },
-    [
-      localState.height,
-      localState.width,
-      graphService,
-      entityId,
-      graphReadOnly,
-    ],
+    [localState.height, localState.width, graphModule, entityId, graphReadOnly],
   );
 
   const handleMount = useCallback(
@@ -182,7 +175,7 @@ export const App: BlockComponent<BlockEntityProperties> = ({
       newDocument.id = entityId;
 
       updateRemoteData({
-        serializedDocument: JSON.stringify(newDocument),
+        [propertyIds.content]: JSON.stringify(newDocument),
       });
     },
     [entityId, updateRemoteData],
@@ -236,8 +229,8 @@ export const App: BlockComponent<BlockEntityProperties> = ({
         return;
       }
       updateRemoteData({
-        width: size.width,
-        height: size.height,
+        [propertyIds.width]: size.width,
+        [propertyIds.height]: size.height,
       });
     },
     [updateRemoteData, graphReadOnly],
