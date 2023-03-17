@@ -181,36 +181,37 @@ export const App: BlockComponent<RootEntity> = ({
     [entityId, updateRemoteData],
   );
 
-  useEffect(() => {
-    try {
-      if (!rTldrawApp.current) return;
-      const app = rTldrawApp.current;
-
-      if (JSON.stringify(app.document) === localState.serializedDocument) {
-        return;
-      }
-
-      const parsedDocument = JSON.parse(
-        localState.serializedDocument,
-      ) as TDDocument;
-
-      // update document if its id hasn't changed. load document if it has
-      if (parsedDocument.id && parsedDocument.id === entityId) {
-        app.updateDocument(parsedDocument);
-      } else {
-        // saved documents should have an id which points to the entityId supplied.
-        if (!parsedDocument.id) parsedDocument.id = entityId;
-        app.loadDocument(parsedDocument);
-        app.zoomToFit();
-      }
-
-      if (localState.darkMode !== app.settings.isDarkMode) {
-        app.toggleDarkMode();
-      }
-    } catch (err) {
-      // todo handle error
-    }
-  }, [localState.serializedDocument, entityId, localState.darkMode]);
+  // @todo reinstate this – it causes an intermittent crash in WordPress, possibly due to latency between local and remote updates
+  // useEffect(() => {
+  //   try {
+  //     if (!rTldrawApp.current) return;
+  //     const app = rTldrawApp.current;
+  //
+  //     if (JSON.stringify(app.document) === localState.serializedDocument) {
+  //       return;
+  //     }
+  //
+  //     const parsedDocument = JSON.parse(
+  //       localState.serializedDocument,
+  //     ) as TDDocument;
+  //
+  //     // update document if its id hasn't changed. load document if it has
+  //     if (parsedDocument.id && parsedDocument.id === entityId) {
+  //       app.updateDocument(parsedDocument);
+  //     } else {
+  //       // saved documents should have an id which points to the entityId supplied.
+  //       if (!parsedDocument.id) parsedDocument.id = entityId;
+  //       app.loadDocument(parsedDocument);
+  //       app.zoomToFit();
+  //     }
+  //
+  //     if (localState.darkMode !== app.settings.isDarkMode) {
+  //       app.toggleDarkMode();
+  //     }
+  //   } catch (err) {
+  //     // todo handle error
+  //   }
+  // }, [localState.serializedDocument, entityId, localState.darkMode]);
 
   const updateDimensions = useCallback(
     (_: SyntheticEvent, { size }: ResizeCallbackData) => {
@@ -263,6 +264,8 @@ export const App: BlockComponent<RootEntity> = ({
             showSponsorLink={false}
             onExport={handleExport}
             darkMode={localState.darkMode}
+            showPages={false}
+            showUI={!localState.readOnly}
           />
         </div>
       </Resizable>
